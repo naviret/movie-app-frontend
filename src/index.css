@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+@font-face {
+    src: url('assets/fonts/bitmap/PPMondwest-Regular.otf') format('opentype');
+    font-family: 'PPMondwest';
+    /* Additional font properties, if needed */
+    font-weight: normal;
+    font-style: normal;    
+}                          
+ 
+@font-face {
+    font-family: 'PPNeuBitBold';    
+    src: url('assets/fonts/bitmap/PPNeueBit-Bold.otf') format('opentype');
+    /* Additional font properties, if needed */
+    font-weight: normal;   
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poster';    
+    src: url('assets/fonts/posters-italic/PostersItalicPersonalUseBoldItalic-ALqx6.ttf') format('opentype');
+    /* Additional font properties, if needed */
+    font-weight: normal;   
+    font-style: normal;
+}
+
+@font-face {
+  font-family: 'Darkmode';    
+  src: url('assets/fonts/darkmode/DarkmodeRegular-X35Oo.ttf') format('opentype');
+  /* Additional font properties, if needed */
+  font-weight: normal;   
+  font-style: normal;
+}
+
+
+body {
+  margin: 0;
+  font-family: 'IBM Plex Mono';
+  background-color: black;
+}
+
