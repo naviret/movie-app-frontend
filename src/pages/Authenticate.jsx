@@ -5,11 +5,10 @@ import Login from '../components/authenticate/Login.jsx';
 
 function Authenticate (){
 
-    const [action, setAction] = useState('Login');
+    const [action, setAction] = useState('Register');
 
     const switchPage = (page) => {
         setAction(page);
-        console.log(action);
     };    
 
 
