@@ -33,8 +33,8 @@ function Login(props) {
             if (!response.ok) {
                 if (response.status === 404) {
                     setStatus(prev => ({
-                        ...prev,
                         email: false,
+                        password: false,
                     }))
                 } else {
                     throw new Error(`HTTP error! Status: ${response.status}`);
