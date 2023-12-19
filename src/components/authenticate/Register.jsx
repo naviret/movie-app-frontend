@@ -1,26 +1,24 @@
 import React, { useState } from 'react';
 import './Authenticate.css';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 
 const URI = "http://localhost:4000";
 
 function Register(props) {
     
 
-    const [first, setFirst] = useState();
-    const [last, setLast] = useState();
+    const [name, setName] = useState();
+    const [user, setUser] = useState();
     const [email, setEmail] = useState();
     const [password, setPass] = useState();
 
     const [status, setStatus] = useState({
-        first: true,
-        last: true,
+        name: true,
+        user: true,
         email: true,
         password: true,
     });
-    const navigate = useNavigate();
-
+    
     const checkStatus = (value) => {
         
         if (typeof value === 'undefined') {
@@ -44,20 +42,11 @@ function Register(props) {
 
     }
 
-    const checkEmail = async (email) => {
-
-        if (!checkEmailPass(email)) {
-            return false;
-        }
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-        if (!emailRegex.test(email)) {
-            return false;
-        }
+    const checkDuplicate = async (value) => {
         
         try {
             // check if user already exists with email
-            const response = await fetch(`${URI}/register/${email}`, {
+            const response = await fetch(`${URI}/register/${value}`, {
                 method: 'GET',
                 credentials: 'include',
                 headers: {
@@ -79,9 +68,30 @@ function Register(props) {
             return true;
 
         } catch(error) {
-            console.error('Error obtaining email:', error);
+            console.error('Error obtaining user:', error);
             return false;
         };
+
+    }
+
+    const checkUser = async (user) => {
+        const dup = await checkDuplicate(user);
+        return dup;
+    }
+
+    const checkEmail = async (email) => {
+
+        if (!checkEmailPass(email)) {
+            return false;
+        }
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!emailRegex.test(email)) {
+            return false;
+        }
+        
+        const dup = await checkDuplicate(email);
+        return dup;
 
 
     }
@@ -89,8 +99,8 @@ function Register(props) {
     const handleSubmit = async () => {
         
         const newStatus = {
-            first: checkStatus(first),
-            last: checkStatus(last),
+            name: checkStatus(name),
+            user: checkStatus(user) && await checkUser(user),
             email: checkStatus(email) && await checkEmail(email),
             password: checkStatus(password) && checkEmailPass(password),
         }
@@ -110,7 +120,7 @@ function Register(props) {
                   'Content-Type': 'application/json',
                   // Add any additional headers if needed
                 },
-                body: JSON.stringify({first, last, email, password}),
+                body: JSON.stringify({name, user, email, password}),
             })
             .then(response => {
                 if (!response.ok) {
@@ -147,17 +157,17 @@ function Register(props) {
                     {/* <img src='' alt=''/> */}
                     <input 
                         type='text' 
-                        placeholder='First Name' 
-                        onChange={(e) => setFirst(e.target.value.trim())}
-                        style={{backgroundColor: status.first ? '#0C0D0E' : '#FA8072'}}/>
+                        placeholder='Name' 
+                        onChange={(e) => setName(e.target.value.trim())}
+                        style={{backgroundColor: status.name ? '#0C0D0E' : '#FA8072'}}/>
                 </div>
                 <div className='input'>
                     {/* <img src='' alt=''/> */}
                     <input 
                         type='text' 
-                        placeholder='Last Name'
-                        onChange={(e) => setLast(e.target.value.trim())}
-                        style={{backgroundColor: status.last ? '#0C0D0E' : '#FA8072'}}/>
+                        placeholder='Username'
+                        onChange={(e) => setUser(e.target.value.trim())}
+                        style={{backgroundColor: status.user ? '#0C0D0E' : '#FA8072'}}/>
                 </div>
                 <div className='input'>
                     {/* <img src='' alt=''/> */}
