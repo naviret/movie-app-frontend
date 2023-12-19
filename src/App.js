@@ -1,7 +1,7 @@
 import react, { useEffect, useState } from 'react';
-import Home from './pages/Home.jsx';
-import UserHome from './pages/UserHome.jsx';
-import Authenticate from './pages/Authenticate.jsx';
+import WebHomePage from './pages/WebHomePage.jsx';
+import UserHomePage from './pages/UserHomePage.jsx';
+import AuthenticationPage from './pages/AuthenticationPage.jsx';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
 
@@ -9,9 +9,9 @@ function App() {
 	return (
 		<BrowserRouter>
 			<Routes>
-				<Route path='/' element={<Home/>}></Route>
-				<Route path="/authenticate" element={<Authenticate />}></Route>
-				<Route path="/home" element={<UserHome />}></Route>
+				<Route path='/' element={<WebHomePage/>}></Route>
+				<Route path="/authenticate" element={<AuthenticationPage />}></Route>
+				<Route path="/home/:user" element={<UserHomePage />}></Route>
 			</Routes>
 		</BrowserRouter>
 	)

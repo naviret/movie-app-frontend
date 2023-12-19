@@ -3,7 +3,7 @@ import Register from '../components/authenticate/Register.jsx';
 import Login from '../components/authenticate/Login.jsx';
 
 
-function Authenticate (){
+function AuthenticationPage (){
 
     const [action, setAction] = useState('Register');
 
@@ -21,4 +21,4 @@ function Authenticate (){
 	)
 }
 
-export default Authenticate;
+export default AuthenticationPage;
