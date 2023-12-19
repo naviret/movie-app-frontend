@@ -51,7 +51,7 @@ function Login(props) {
                         password: true,
                     }))
                     
-                    const username = responseData.username;
+                    const username = responseData.user;
                     console.log("User authentification: succseful.");
                     navigate(`/home/${username}`, responseData);
 
