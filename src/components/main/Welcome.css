@@ -13,7 +13,7 @@
 
 .welcome-text {
     color: #7C0A02;
-    font-size: 84px;
+    font-size: 70px;
     font-weight: 700;
     padding: 0% 30px;
     width: fit-content;
@@ -84,4 +84,5 @@
     font-size: 30px;
     font-weight: 700;
     cursor: pointer;
+    border: none;
 }

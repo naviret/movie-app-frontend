@@ -16,7 +16,9 @@ function Login(props) {
         password: true,
     })
     
-    const handleSubmit = async () => {
+    const handleSubmit = async (event) => {
+        
+        event.preventDefault();
 
         try {
             const response = await fetch(`${URI}/login/${email}`, {
@@ -77,28 +79,30 @@ function Login(props) {
                 <div className='text'>Login</div>
                 <div className='underline'></div>
             </div>
-            <div className='inputs'>
-                <div className='input'>
-                    {/* <img src='' alt=''/> */}
-                    <input 
-                        type='email' 
-                        placeholder='Email'
-                        onChange={(e) => setEmail(e.target.value.trim())}
-                        style={{backgroundColor: status.email ? '#0C0D0E' : '#FA8072'}}/>
+            <form onSubmit={handleSubmit}>
+                <div className='inputs'>
+                    <div className='input'>
+                        {/* <img src='' alt=''/> */}
+                        <input 
+                            type='email' 
+                            placeholder='Email'
+                            onChange={(e) => setEmail(e.target.value.trim())}
+                            style={{backgroundColor: status.email ? '#0C0D0E' : '#FA8072'}}/>
+                    </div>
+                    <div className='input'>
+                        {/* <img src='' alt=''/> */}
+                        <input 
+                            type='password' 
+                            placeholder='Password'
+                            onChange={(e) => setPass(e.target.value.trim())}
+                            style={{backgroundColor: status.password ? '#0C0D0E' : '#FA8072'}}/>
+                    </div>
                 </div>
-                <div className='input'>
-                    {/* <img src='' alt=''/> */}
-                    <input 
-                        type='password' 
-                        placeholder='Password'
-                        onChange={(e) => setPass(e.target.value.trim())}
-                        style={{backgroundColor: status.password ? '#0C0D0E' : '#FA8072'}}/>
-                </div>
-            </div>
-            <div className='forgot-password'>Forgot password? <span>Click here!</span></div>           
-            <div className='submit-container'>
-                <div className='submit' onClick={handleSubmit}>Login</div>
-            </div>
+                <div className='forgot-password'>Forgot password? <span>Click here!</span></div>           
+                <button type='submit' className='submit-container'>
+                    <div className='submit'>Login</div>
+                </button>
+            </form>
             <div className='already-container'>
                 <div className='already'>Not registered? <span onClick={handleClick}>Register here!</span></div>
             </div>

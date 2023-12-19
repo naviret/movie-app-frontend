@@ -83,24 +83,21 @@
 .submit-container {
     display: flex;
     /* flex-direction: column; */
-    gap: 30px;
+    justify-content: center;
+    align-items: center;
     margin: 60px auto;
     font-family: "Darkmode";
     width: 80%;
-}
-
-.submit {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
     height: 50px;
+    font-size: 25px;
     color: black;
     background-color: #7C0A02;
     border-radius: 0px;
-    font-size: 25px;
-    font-weight: 700;
+    border-color: #7C0A02;
     cursor: pointer;
+    border: none;
+
+
 }
 
 .already-container {

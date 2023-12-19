@@ -96,8 +96,10 @@ function Register(props) {
 
     }
 
-    const handleSubmit = async () => {
+    const handleSubmit = async (event) => {
         
+        event.preventDefault()
+
         const newStatus = {
             name: checkStatus(name),
             user: checkStatus(user) && await checkUser(user),
@@ -152,43 +154,45 @@ function Register(props) {
                 <div className='text'>Register</div>
                 <div className='underline'></div>
             </div>
-            <div className='inputs'>
-                <div className='input'>
-                    {/* <img src='' alt=''/> */}
-                    <input 
-                        type='text' 
-                        placeholder='Name' 
-                        onChange={(e) => setName(e.target.value.trim())}
-                        style={{backgroundColor: status.name ? '#0C0D0E' : '#FA8072'}}/>
-                </div>
-                <div className='input'>
-                    {/* <img src='' alt=''/> */}
-                    <input 
-                        type='text' 
-                        placeholder='Username'
-                        onChange={(e) => setUser(e.target.value.trim())}
-                        style={{backgroundColor: status.user ? '#0C0D0E' : '#FA8072'}}/>
-                </div>
-                <div className='input'>
-                    {/* <img src='' alt=''/> */}
-                    <input 
-                        type='email' 
-                        placeholder='Email'
-                        onChange={(e) => setEmail(e.target.value.trim())}
-                        style={{backgroundColor: status.email ? '#0C0D0E' : '#FA8072'}}/>
-                </div>
-                <div className='input'>
-                    {/* <img src='' alt=''/> */}
-                    <input 
-                        type='password' 
-                        placeholder='Password'
-                        onChange={(e) => setPass(e.target.value.trim())}
-                        style={{backgroundColor: status.password ? '#0C0D0E' : '#FA8072'}}/>
-                </div>
-            </div>      
-            <div className='submit-container'>
-                <div className='submit' onClick={handleSubmit}>Register</div>
-            </div>
+            <form onSubmit={handleSubmit}>
+                <div className='inputs'>
+                    <div className='input'>
+                        {/* <img src='' alt=''/> */}
+                        <input 
+                            type='text' 
+                            placeholder='Name' 
+                            onChange={(e) => setName(e.target.value.trim())}
+                            style={{backgroundColor: status.name ? '#0C0D0E' : '#FA8072'}}/>
+                    </div>
+                    <div className='input'>
+                        {/* <img src='' alt=''/> */}
+                        <input 
+                            type='text' 
+                            placeholder='Username'
+                            onChange={(e) => setUser(e.target.value.trim())}
+                            style={{backgroundColor: status.user ? '#0C0D0E' : '#FA8072'}}/>
+                    </div>
+                    <div className='input'>
+                        {/* <img src='' alt=''/> */}
+                        <input 
+                            type='email' 
+                            placeholder='Email'
+                            onChange={(e) => setEmail(e.target.value.trim())}
+                            style={{backgroundColor: status.email ? '#0C0D0E' : '#FA8072'}}/>
+                    </div>
+                    <div className='input'>
+                        {/* <img src='' alt=''/> */}
+                        <input 
+                            type='password' 
+                            placeholder='Password'
+                            onChange={(e) => setPass(e.target.value.trim())}
+                            style={{backgroundColor: status.password ? '#0C0D0E' : '#FA8072'}}/>
+                    </div>
+                </div>      
+                <button type='submit' className='submit-container'>
+                    <div className='submit'>Register</div>
+                </button>
+            </form>
             <div className='already-container'>
                 <div className='already'>Already signed up? <span onClick={handleClick}>Login here!</span></div>
             </div>

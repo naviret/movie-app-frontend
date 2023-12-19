@@ -7,7 +7,9 @@ function GenreForm (props){
 
     const [genre, setGenre] = useState('Thriller');
 
-    const handleSubmit = async () => {
+    const handleSubmit = async (event) => {
+       
+        event.preventDefault();
 
         try {
             const response = await fetch(`${URI}/recommend/${genre}`, {
@@ -43,16 +45,16 @@ function GenreForm (props){
             <div className='movie-request-header'>
                 What <span>genre</span> are you looking for today?
             </div>
-            <div className='movie-request-input'>
+            <form className='movie-request-input' onSubmit={handleSubmit}>
                 <input 
                     type='text' 
                     placeholder='horror, adventure, thriller, etc.'
                     onChange={(e) => setGenre(e.target.value.trim())}
                 />
-                <div className='request-submit-container' onClick={handleSubmit}>
+                <button type='submit' className='request-submit-container'>
                     <div className='request-submit'>Submit</div>
-                </div>
-            </div>
+                </button>
+            </form>
         </div>
 	)
 }
