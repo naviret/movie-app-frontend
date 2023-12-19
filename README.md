@@ -1,70 +1,53 @@
-# Getting Started with Create React App
+# Movie Recommendation App Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This repository is the frontend for a movie recommendation app built using `React`. This app is composed of three web pages that follow the structure shown below.
 
-## Available Scripts
+```
+.
+├── /
+├── /authenticate
+└── /home/:user
+```
 
-In the project directory, you can run:
+This frontend makes use of the `react-browser-dom` to route components to the pages shown in the directory tree. Each url then renders the following pages:
 
-### `npm start`
+```
+.
+├── /WebHomePage
+├── /AuthenticatePage
+│   ├── /Login
+│   ├── /Register
+│   └── /Forgot Password
+└── /UserHomePage
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Using the app
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Home Page
 
-### `npm test`
+The image shown below is the home page. This describes what the project is about and also provides a link to the Login page.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![GitHub Logo](README/images/home.png)
 
-### `npm run build`
+### Authentication Page
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This page consists of a login, registration, and forgot password page as shown below.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![GitHub Logo](README/images/register.png)
+![GitHub Logo](README/images/login.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The registration page verifies that the user's submission is correct by querying the attempted submission against the backend, specifically the username and email address, and also verifying text is present in the other fields. If the username or email address are found in the database, registration will not occur. The element which received invalid input, will turn red to notify the user what went wrong, as shown below. Upon successful registration, the user will be sent to the login page.
 
-### `npm run eject`
+![GitHub Logo](README/images/registrationverification.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+The login page is similar to the registration page. It uses the email to query the backend for the password. If the email is not found in the backend, the email input element will turn red to notify the user. If the provided password is incorrect but the email was found, only the password input element will turn red. This is shown below:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![GitHub Logo](README/images/loginverification.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Once the user successfully logs in, they will be sent to their personalized home page.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### User's Home Page
 
-## Learn More
+This page is personalized for each user using their username. When the user asks for a movie recommendation, they will have the option to click a movie to add it to their favorites. In the future this will be used for collaborative filtering and content-based ML.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![GitHub Logo](README/images/userhome.png)
