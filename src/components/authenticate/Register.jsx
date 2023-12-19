@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './Authenticate.css';
-import { useNavigate } from 'react-router-dom';
 
 const URI = "http://localhost:4000";
 
@@ -25,7 +24,7 @@ function Register(props) {
             return false;
         }
 
-        if (value.length == 0) {
+        if (value.length === 0) {
             return false;
         }
 

@@ -1,4 +1,4 @@
-import react, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Register from '../components/authenticate/Register.jsx';
 import Login from '../components/authenticate/Login.jsx';
 

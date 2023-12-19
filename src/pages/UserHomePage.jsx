@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
 import Welcome from '../components/main/Welcome.jsx'
 import MoviesList from '../components/movies/MoviesList.jsx';
 import './Pages.css'
@@ -8,8 +8,8 @@ import GenreForm from '../components/main/GenreForm.jsx';
 function UserHomePage (){
 
 	const { user } = useParams();
-	const location = useLocation();
-	const { state } = location;
+	// const location = useLocation(); <<-- FUTUREDEV
+	// const { state } = location; <<-- FUTUREDEV
 	const form = GenreForm;
 
 	const [movies, setMovies] = useState([]);

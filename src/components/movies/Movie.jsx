@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './Movies.css';
 
 const basePosterUrl = 'https://image.tmdb.org/t/p/w300'; 

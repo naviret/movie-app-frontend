@@ -1,5 +1,4 @@
-import react, { useEffect, useState } from 'react';
-import GenreForm from './GenreForm';
+import React from 'react';
 import './Welcome.css';
 
 
