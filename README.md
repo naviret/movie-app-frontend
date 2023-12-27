@@ -1,6 +1,10 @@
 # Movie Recommendation App Frontend
 
-This repository is the frontend for a movie recommendation app built using `React`. This app is composed of three web pages that follow the structure shown below.
+This repository is the frontend for a movie recommendation app built using `React`.
+
+The deployment link is here: https://movie-app-frontend.up.railway.app/ .
+
+This app is composed of three web pages that follow the structure shown below.
 
 ```
 .
