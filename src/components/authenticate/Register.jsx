@@ -140,7 +140,7 @@ function Register(props) {
 				<div className='text'>Register</div>
 				<div className='underline'></div>
 			</div>
-			<form onSubmit={handleSubmit} novalidate>
+			<form onSubmit={handleSubmit} noValidate>
 				<div className='inputs'>
 					<div className='input'>
 						{/* <img src='' alt=''/> */}

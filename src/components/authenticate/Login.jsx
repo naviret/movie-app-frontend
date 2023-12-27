@@ -72,7 +72,7 @@ function Login(props) {
 				<div className='text'>Login</div>
 				<div className='underline'></div>
 			</div>
-			<form onSubmit={handleSubmit} novalidate>
+			<form onSubmit={handleSubmit} noValidate>
 				<div className='inputs'>
 					<div className='input'>
 						{/* <img src='' alt=''/> */}
