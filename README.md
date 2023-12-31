@@ -2,7 +2,9 @@
 
 This repository is the frontend for a movie recommendation app built using `React`.
 
-The deployment link is here: https://movie-app-frontend.up.railway.app/ .
+The deployment link is available here: https://movie-app-frontend.up.railway.app/ .
+
+The link to the backend repository is here: https://github.com/naviret/movie-app-backend . 
 
 This app is composed of three web pages that follow the structure shown below.
 
